@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{E389BAF6-7CCC-42D1-924B-3226F4F36C5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{3FF64BAF-B487-451C-B599-C87FD081FC96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{9D976433-FD5C-4FDF-B9BD-9B52D3E05CA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{3EAD92A5-EE25-46AB-B40A-2530C048B85C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Topic", "Topic", "{095B6619-3209-46DB-B849-EC8D7D32F99E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7EC2BDF6-63E4-4EA5-A2E9-CA6A321D4E01}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{095B6619-3209-46DB-B849-EC8D7D32F99E} = {E389BAF6-7CCC-42D1-924B-3226F4F36C5D}
+		{7EC2BDF6-63E4-4EA5-A2E9-CA6A321D4E01} = {E389BAF6-7CCC-42D1-924B-3226F4F36C5D}
+	EndGlobalSection
+EndGlobal

@@ -1,1 +1,1 @@
-﻿
+﻿var app = angular.module('JobTipsApp', ['ngRoute', 'JobTipsApp.Topic']);

@@ -29,12 +29,15 @@
         <link rel="stylesheet" type="text/css" href="../scripts/libs/rs-plugin/css/settings.css" media="screen" />
         <link href="../css/ckEditor/samples.css" rel="stylesheet" />
         <!--Scripts-->
+
         <script src="../scripts/libs/angular/angular.min.js"></script>
         <script src="../scripts/libs/angular/angular-route.min.js"></script>
         <script src="../scripts/app.js"></script>
         <script src="../../topics/scripts/directives/topicsController.js"></script>
         <script src="../../topics/scripts/routes/topicRoute.js"></script>
-        <script src="../scripts/libs/ckEditor/ckeditor.js"></script>
+        <script src="../scripts/libs/ckeditor/angular-ckeditor.js"></script>
+        <script src="../scripts/libs/ckeditor/ckeditor.js"></script>
+        <script src="../scripts/directives/controls/Ckeditor.js"></script>
     </head>
     <body ng-app="JobTipsApp">
 
@@ -151,11 +154,8 @@
                             hideThumbs: 10,
                             fullWidth: "on"
                         });
-
             });	//ready
-
         </script>
-
         <!-- END REVOLUTION SLIDER -->
     </body>
 </html>

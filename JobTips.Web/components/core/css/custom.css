@@ -972,7 +972,35 @@ a.down:hover {
     margin-bottom: 0;
 }
 
+/*-----------------------------------------------------------------*/
+/*--- #TOPICLIST ---*/
+.box-kind {
+    width: 100%;
+}
+.box-kind .select-item {
+    display: inline-block;
+    font-size: 16px;
+}
 
+.box-kind .select-item a {
+    background-color: #fff;
+    display: inline-block;
+    box-shadow: 0 1px 2px #c9cccd;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+    padding: 4px 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+.box-kind .select-item a:hover {
+    background-color: #1abc9c;
+    color: #fff;
+}
+.box-kind .select-item.selected a {
+    background-color: #1abc9c;
+    color: #fff;
+}
 /*-----------------------------------------------------------------*/
 /*--- Extra small devices (less 767px) ---*/
 

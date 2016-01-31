@@ -1,16 +1,20 @@
-﻿using System;
+﻿using JobTips.Topic.BusinessObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JobTips.Topic.Repository
+namespace JobTips.Topic.Controller
 {
     // This project can output the Class library as a NuGet Package.
     // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
-    public class Class1
+    public class TopicController
     {
-        public Class1()
+        private readonly ITopicService _topicService;
+
+        public TopicController(ITopicService topicService)
         {
+            this._topicService = topicService;
         }
     }
 }

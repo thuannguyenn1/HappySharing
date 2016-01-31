@@ -83,10 +83,13 @@ ul.socialicons li a:hover {
 /*-----------------------------------------------------------------*/
 /*--- Header ---*/
 .headernav {
-    height: 70px;
+    /*height: 70px;*/
     border-bottom: 1px solid #c9cccd;
 }
 
+.logo {
+    height: 50px;
+}
 
 .content {
     background-color: #ecf0f1;
@@ -112,23 +115,26 @@ ul.socialicons li a:hover {
     color: #363838;
     font-size: 14px;
     font-family: 'Open Sans Light', sans-serif;
-    margin-top: 16px;
+    margin: 10px 0 10px 0;
     height: 38px
 }
 
 .headernav .search  .wrap {
-    background-color: #f3f5f9;
+    background-color: #fff;
     border-radius: 3px;
 }
 
 .headernav .search .txt {
-    width: 85%;
+    width: 100%;
 }
-
+.pull-right {
+    position: relative;
+    top: -39px;
+}
 .headernav .search input {
     border: none;
     box-shadow: none;
-    background-color: #f3f5f9;
+    background-color: #fff;
     color: #363838;
     font-size: 14px;
     padding: 8px 19px;
@@ -147,7 +153,7 @@ ul.socialicons li a:hover {
 
 /*--- Avatar ---*/
 .avt {
-    margin-top: 16px;
+    margin-top: 5px;
     height: 38px;
 }
 
@@ -1001,6 +1007,13 @@ a.down:hover {
     background-color: #1abc9c;
     color: #fff;
 }
+
+.btn-gruop-nav {
+    background-color: #1abc9c;
+}
+.btn-gruop-nav .icon-bar {
+    background-color: #fff;
+}
 /*-----------------------------------------------------------------*/
 /*--- Extra small devices (less 767px) ---*/
 
@@ -1054,7 +1067,7 @@ a.down:hover {
 
     .avt {
         height: auto; 
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .selecttopic select {
@@ -1185,7 +1198,7 @@ a.down:hover {
 
     .avt {
         height: auto; 
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .selecttopic select {

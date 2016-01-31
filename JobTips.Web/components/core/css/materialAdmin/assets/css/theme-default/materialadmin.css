@@ -550,7 +550,7 @@ body {
   -ms-overflow-style: scrollbar;
 }
 .container {
-  padding: 0;
+  /*padding: 0;*/
 }
 a {
   color: inherit;
@@ -2199,10 +2199,10 @@ body:not(.menubar-first) .menubar-fixed-panel {
     background: inherit;
   }
 }
-section {
+/*section {
   position: relative;
   padding: 24px;
-}
+}*/
 section:first-child {
   padding-top: 0;
 }
@@ -2431,9 +2431,9 @@ section.section-account .img-circle {
   }
 }
 @media (max-width: 768px) {
-  section {
+  /*section {
     padding: 12px;
-  }
+  }*/
   .full-content section.has-actions {
     padding-bottom: 64px;
   }

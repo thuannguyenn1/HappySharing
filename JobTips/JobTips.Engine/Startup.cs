@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using JobTips.Topic.BusinessObject;
+using JobTips.Topic.Repository;
+using JobTips.Topic.Service;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,7 +27,18 @@ namespace JobTips.Engine
         {
             // Add framework services.
             services.AddMvc();
-            services.AddSingleton<>
+
+            #region core injection
+
+            #endregion
+
+            #region topic injection
+            services.AddSingleton<ITopicRepository, TopicRepository>();
+            services.AddSingleton<ITopicService, TopicService>();
+
+            #endregion
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

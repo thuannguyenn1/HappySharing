@@ -1,15 +1,30 @@
-﻿{
+{
   "version": "1.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
   },
 
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Data Source=.\\sqlexpress;Initial Catalog=JobTipDatabase;Integrated Security=True"
+    }
+  },
+
   "dependencies": {
+    "Dapper": "1.42.0",
+    "JobTips.Core.BusinessObjects": "1.0.0-*",
+    "JobTips.Core.Controller": "1.0.0-*",
+    "JobTips.Core.Repository": "1.0.0-*",
+    "JobTips.Core.Service": "1.0.0-*",
+    "JobTips.Topic.BusinessObject": "1.0.0-*",
+    "JobTips.Topic.Controller": "1.0.0-*",
+    "JobTips.Topic.Repository": "1.0.0-*",
+    "JobTips.Topic.Service": "1.0.0-*",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.FileProviderExtensions" : "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
@@ -21,7 +36,11 @@
   },
 
   "frameworks": {
-    "dnx451": { }
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.configuration": "4.0.0.0"
+      }
+    }
   },
 
   "exclude": [

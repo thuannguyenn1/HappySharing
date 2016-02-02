@@ -9,7 +9,7 @@ namespace JobTips.Core.Repository.DataAccess
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private bool disposed;
+        private bool _disposed;
 
         protected IDbConnection DbConnectionAsync;
         protected IDbTransaction DbTransaction;
@@ -106,7 +106,7 @@ namespace JobTips.Core.Repository.DataAccess
         }
         private void WithCheckForDisposal(Action action)
         {
-            if (!this.disposed)
+            if (!this._disposed)
                 action();
             else
                 throw new ObjectDisposedException(this.GetType().Name, "This unit of work has already been disposed.");

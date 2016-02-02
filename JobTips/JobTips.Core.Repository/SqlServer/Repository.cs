@@ -7,8 +7,8 @@ using JobTips.Core.Repository.DataAccess;
 
 namespace JobTips.Core.Repository.SqlServer
 {
-    public abstract class Repository<TKey, TEntity> 
-        : IRepository<TKey, TEntity> where TEntity : BaseEntity<TKey>
+    public abstract class Repository
+        : IRepository
     {
         public abstract string ConnectionString { get; }
 
@@ -18,21 +18,6 @@ namespace JobTips.Core.Repository.SqlServer
             sqlConnection.Open();
             SqlTransaction sqlTransaction = sqlConnection.BeginTransaction();
             return new SqlUnitOfWork(sqlTransaction);
-        }
-
-        public TEntity Delete(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity Insert(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TEntity Update(TEntity entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -3,18 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http;
+using JobTips.Topic.Service;
 
 namespace JobTips.Topic.Controller
 {
-    // This project can output the Class library as a NuGet Package.
-    // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
-    public class TopicController
+    public class TopicController : ApiController
     {
-        private readonly ITopicService _topicService;
+        public ITopicService TopicService;
 
+        public TopicController()
+        {
+                
+        }
         public TopicController(ITopicService topicService)
         {
-            this._topicService = topicService;
+            this.TopicService = topicService;
+        }
+
+        [HttpGet]
+        public string Abc()
+        {
+            return TopicService.Abc();
         }
     }
 }

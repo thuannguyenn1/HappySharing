@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace JobTips.Topic.Service
 {
-    // This project can output the Class library as a NuGet Package.
-    // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
     public class TopicService : ITopicService
     {
-        private readonly ITopicRepository _topicRepository;
+        public ITopicRepository TopicRepository;
         public TopicService(ITopicRepository topicRepository)
         {
-            this._topicRepository = topicRepository;
+            this.TopicRepository = topicRepository;
+        }
+
+        public string Abc()
+        {
+            using (var unitOfWork = this.TopicRepository.BeginWork())
+            {
+                return this.TopicRepository.Abc(unitOfWork);
+            }
         }
     }
 }

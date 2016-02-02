@@ -7,5 +7,6 @@ namespace JobTips.Topic.BusinessObject
 {
     public interface ITopicService
     {
+        string Abc();
     }
 }

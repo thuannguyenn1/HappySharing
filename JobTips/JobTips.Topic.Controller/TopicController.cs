@@ -12,10 +12,6 @@ namespace JobTips.Topic.Controller
     {
         public ITopicService TopicService;
 
-        public TopicController()
-        {
-                
-        }
         public TopicController(ITopicService topicService)
         {
             this.TopicService = topicService;

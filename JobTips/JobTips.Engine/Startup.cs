@@ -14,8 +14,6 @@ namespace JobTips.Engine
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            IoCInitialize.RegisteIoC();
-            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
         }
     }
 }

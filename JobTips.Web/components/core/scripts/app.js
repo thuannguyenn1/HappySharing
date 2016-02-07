@@ -1,1 +1,1 @@
-﻿var app = angular.module('JobTipsApp', ['ngRoute', 'JobTipsApp.Topic', 'ckeditor', 'JobTipsApp.controls']);
+﻿var app = angular.module('JobTipsApp', ['ngRoute', 'JobTipsApp.Topic', 'ckeditor', 'JobTipsApp.controls', 'JobTipsApp.User', 'JobTipsApp.control']);

@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using JobTips.Engine.Models;
 using JobTips.Engine.Providers;
 using JobTips.Engine.Results;
+using Microsoft.Practices.Unity;
 
 namespace JobTips.Engine.Controllers
 {
@@ -25,10 +26,6 @@ namespace JobTips.Engine.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
-        public AccountController()
-        {
-        }
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)

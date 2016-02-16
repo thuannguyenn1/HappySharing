@@ -1,6 +1,6 @@
 ﻿angular.module('JobTipsApp.User', []).controller('UserController', function ($scope) {
 
-    $scope.title = "Home";
+    $scope.title = "User";
 
 
 });

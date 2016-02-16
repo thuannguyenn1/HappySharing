@@ -4968,7 +4968,7 @@ li.dropdown-progress .progress {
 }
 .card {
   position: relative;
-  margin-bottom: 24px;
+  /*margin-bottom: 24px;*/
   background-color: #ffffff;
   color: #313534;
   border-radius: 2px;
@@ -5855,6 +5855,7 @@ section.style-info .btn-flat:hover,
   -webkit-box-shadow: none;
   box-shadow: none;
   color: inherit;
+  height: calc(100vh - 132px);
 }
 .style-image {
   background-image: url('graphics/bg.jpg');

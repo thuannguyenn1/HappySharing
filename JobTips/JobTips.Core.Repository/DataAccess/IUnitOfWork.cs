@@ -13,7 +13,7 @@ namespace JobTips.Core.Repository.DataAccess
 
         IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
 
-        IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
+        IEnumerable<T> Query<T>(string sql, object parameters, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
 
         SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, int? commandTimeout = null, CommandType? commandType = null);
 

@@ -15,10 +15,11 @@ namespace JobTips.User.Controller
         {
             this.UserService = userService;
         }
-        [HttpGet]
-        public string Abc()
+
+        [HttpPost]
+        public UserResponse Login(UserLoginRequest userInfo)
         {
-            return UserService.Abc();
+            return this.UserService.LoginUser(userInfo);
         }
     }
 }

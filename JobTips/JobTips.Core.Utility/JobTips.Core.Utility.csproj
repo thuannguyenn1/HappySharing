@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7337FCA-4591-4393-9A68-E22B5C2F6CD4}</ProjectGuid>
+    <ProjectGuid>{A3BC5220-DEF0-4EF4-805A-52109CD086D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JobTips.User.Service</RootNamespace>
-    <AssemblyName>JobTips.User.Service</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>JobTips.Core.Utility</RootNamespace>
+    <AssemblyName>JobTips.Core.Utility</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,26 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncryptHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\JobTips.Core.Repository\JobTips.Core.Repository.csproj">
-      <Project>{c7e3df8e-b55e-43ec-94b2-d2d690b01917}</Project>
-      <Name>JobTips.Core.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JobTips.Core.Utility\JobTips.Core.Utility.csproj">
-      <Project>{a3bc5220-def0-4ef4-805a-52109cd086d0}</Project>
-      <Name>JobTips.Core.Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JobTips.User.BusinessObject\JobTips.User.BusinessObject.csproj">
-      <Project>{d8362830-1f40-4ecb-9b97-049f6872ca12}</Project>
-      <Name>JobTips.User.BusinessObject</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JobTips.User.Repository\JobTips.User.Repository.csproj">
-      <Project>{7a44f0d7-b1bf-4ba2-bf3a-07a3bcdbf637}</Project>
-      <Name>JobTips.User.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

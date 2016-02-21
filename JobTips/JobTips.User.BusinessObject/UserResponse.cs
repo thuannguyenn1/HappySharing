@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace JobTips.User.BusinessObject
 {
-    public interface IUserService
+    public class UserResponse
     {
-        UserResponse LoginUser(UserLoginRequest userInfo);
+        public string Token { get; set; }
     }
 }

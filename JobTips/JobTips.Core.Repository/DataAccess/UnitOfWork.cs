@@ -36,7 +36,7 @@ namespace JobTips.Core.Repository.DataAccess
             return SqlMapper.Query(DbConnectionAsync, sql, param, DbTransaction, buffered, commandTimeout, commandType);
         }
 
-        public IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
+        public IEnumerable<T> Query<T>(string sql, object parameters, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
         {
             return SqlMapper.Query<T>(DbConnectionAsync, sql, param, DbTransaction, buffered, commandTimeout, commandType);
         }

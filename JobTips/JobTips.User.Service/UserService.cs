@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JobTips.Core.Utility;
 using JobTips.User.BusinessObject;
 
 namespace JobTips.User.Service
@@ -16,11 +17,17 @@ namespace JobTips.User.Service
             this.UserRepository = usetRepository;
         }
 
-        public string Abc()
+        public BusinessObject.UserResponse LoginUser(UserLoginRequest userInfo)
         {
             using (var unitOfWork = this.UserRepository.BeginWork())
             {
-                return this.UserRepository.Abc(unitOfWork);
+                var result = this.UserRepository.LoginUser(userInfo, unitOfWork);
+                UserResponse userResponseData = new UserResponse();
+                if (result != null)
+                {
+                    userResponseData.Token = EncryptHelper.GenerateToken();
+                }
+                return userResponseData;
             }
         }
     }

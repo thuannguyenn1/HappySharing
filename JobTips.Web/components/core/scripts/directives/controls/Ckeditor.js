@@ -1,4 +1,4 @@
-﻿angular.module('JobTipsApp.controls', [])
+﻿angular.module('JobTipsApp.Controls', [])
 .controller('CkeditorCtrl', ['$scope', function ($scope) {
 
     var codemirrorConfig = {

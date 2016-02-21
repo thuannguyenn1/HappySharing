@@ -1,21 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using JobTips.Core.Repository.DataAccess;
 using JobTips.User.BusinessObject;
+
 namespace JobTips.User.Repository
 {
     public class UserRepository : JobTipsDataRepository, IUserRepository
     {
-        public UserRepository()
+        public BusinessObject.User LoginUser(UserLoginRequest userInfo, IUnitOfWork unitOfWork)
         {
-            
+            ValidateUnitOfWork(unitOfWork);
+
+            string procedureName = "";
+
+            var parameters = new
+            {
+                UserName = userInfo.UserName,
+                Password = userInfo.Password
+            };
+
+            var result = unitOfWork.Query<BusinessObject.User>(procedureName,parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
+
+            return result;
         }
 
-        public string Abc(IUnitOfWork unitOfWork)
+        private void ValidateUnitOfWork(IUnitOfWork unitOfWork)
         {
-            return "abc";
+            if (unitOfWork == null)
+            {
+                throw new Exception("unitOfWork", new NullReferenceException());
+            }
         }
     }
 }

@@ -8,6 +8,6 @@ namespace JobTips.User.BusinessObject
 {
     public interface IUserRepository:IRepository
     {
-        string  Abc(IUnitOfWork unitOfWork);
+        User LoginUser(UserLoginRequest userInfo, IUnitOfWork unitOfWork);
     }
 }

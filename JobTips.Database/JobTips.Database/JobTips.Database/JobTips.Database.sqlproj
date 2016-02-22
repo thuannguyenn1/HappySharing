@@ -60,8 +60,11 @@
     <Folder Include="Core" />
     <Folder Include="Topic" />
     <Folder Include="Common" />
+    <Folder Include="User" />
+    <Folder Include="User\procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Core\jobtipsDB.sql" />
+    <Build Include="User\procedures\GetUserLogin.sql" />
   </ItemGroup>
 </Project>

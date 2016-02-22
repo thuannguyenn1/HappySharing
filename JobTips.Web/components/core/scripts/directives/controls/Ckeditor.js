@@ -1,5 +1,5 @@
 ﻿angular.module('JobTipsApp.Controls', [])
-.controller('CkeditorCtrl', ['$scope', function ($scope) {
+.controller('ckeditorCtrl', ['$scope', function ($scope) {
 
     var codemirrorConfig = {
 
@@ -88,7 +88,7 @@
         return {
             restrict: 'E',
             templateUrl: '../html/controls/CkEditor.html',
-            controller: 'CkeditorCtrl'
+            controller: 'ckeditorCtrl'
         };
 
     });

@@ -2,7 +2,6 @@
   function ($routeProvider) {
       $routeProvider.
         when('/userLogin', {
-            templateUrl: '../../user/html/Login.html',
-            controller: 'UserController'
+            templateUrl: '../../user/html/Login.html'
         });
   }]);

@@ -14,8 +14,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using JobTips.Engine.Models;
-using JobTips.Engine.Providers;
-using JobTips.Engine.Results;
+using JobTips.User.BusinessObject;
 using Microsoft.Practices.Unity;
 
 namespace JobTips.Engine.Controllers
@@ -24,6 +23,16 @@ namespace JobTips.Engine.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-      
+        private readonly IUserService userService;
+        public AccountController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
+        [HttpPost]
+        public UserResponse Login(UserLoginRequest userInfo)
+        {
+            return this.userService.LoginUser(userInfo);
+        }
     }
 }

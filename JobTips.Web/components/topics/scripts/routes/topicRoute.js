@@ -3,21 +3,18 @@
       $routeProvider.
         when('/home', {
             templateUrl: '../../topics/html/TopicList.html',
-            controller: 'TopicController'
+            controller: 'topicController'
         }).
         when('/newAccount', {
             templateUrl: '../../topics/html/NewAccount.html',
-            controller: 'TopicController'
+            controller: 'topicController'
         }).
         when('/newTopic', {
             templateUrl: '../../topics/html/NewTopic.html',
-            controller: 'TopicController'
+            controller: 'topicController'
         }).
          when('/topicDetails', {
              templateUrl: '../../topics/html/Topic.html',
-             controller: 'TopicController'
-         }).
-        otherwise({
-            redirectTo: '/home'
-        }); 
+             controller: 'topicController'
+         }); 
   }]);

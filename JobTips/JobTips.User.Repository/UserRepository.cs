@@ -14,7 +14,7 @@ namespace JobTips.User.Repository
         {
             ValidateUnitOfWork(unitOfWork);
 
-            string procedureName = "";
+            string procedureName = "dbo.GetUserLogin";
 
             var parameters = new
             {

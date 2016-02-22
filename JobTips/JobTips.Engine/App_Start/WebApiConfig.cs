@@ -1,7 +1,8 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
 using System.Web.Http.Cors;
-using Microsoft.Owin.Security.OAuth;
-
 
 namespace JobTips.Engine
 {
@@ -10,20 +11,19 @@ namespace JobTips.Engine
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            // Configure Web API to use only bearer token authentication.
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-            
-            //Enable CORS
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
-            
+
             // Web API routes
             config.MapHttpAttributeRoutes();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+            config.Routes.MapHttpRoute(
+              name: "WebApi",
+              routeTemplate: "api/{controller}/{action}"
+            );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "webapi/api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

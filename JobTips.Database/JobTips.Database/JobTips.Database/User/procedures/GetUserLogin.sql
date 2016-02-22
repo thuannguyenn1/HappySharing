@@ -1,7 +1,7 @@
-CREATE PROCEDURE dbo.GetUserLogin
+﻿CREATE PROCEDURE dbo.GetUserLogin
 (
 	@UserName NVARCHAR(50),
-	@Password NVARCHAR(50)
+	@Password NVARCHAR(MAX)
 )
 AS
 BEGIN

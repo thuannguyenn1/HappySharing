@@ -16,5 +16,7 @@
          when('/topicDetails', {
              templateUrl: '../../topics/html/Topic.html',
              controller: 'topicController'
+         }).otherwise({
+             redirectTo: '/home'
          }); 
   }]);

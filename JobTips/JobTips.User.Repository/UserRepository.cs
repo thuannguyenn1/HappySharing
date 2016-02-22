@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using JobTips.Core.Repository.DataAccess;
 using JobTips.User.BusinessObject;
 
@@ -22,7 +23,7 @@ namespace JobTips.User.Repository
                 Password = userInfo.Password
             };
 
-            var result = unitOfWork.Query<BusinessObject.User>(procedureName,parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters: parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
 
             return result;
         }

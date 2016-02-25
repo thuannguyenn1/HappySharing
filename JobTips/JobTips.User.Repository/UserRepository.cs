@@ -23,7 +23,7 @@ namespace JobTips.User.Repository
                 Password = userInfo.Password
             };
 
-            var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters: parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
 
             return result;
         }

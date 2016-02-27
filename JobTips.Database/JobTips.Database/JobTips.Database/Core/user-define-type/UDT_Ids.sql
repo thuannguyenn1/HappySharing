@@ -1,0 +1,4 @@
+CREATE TYPE UDT_Ids AS TABLE
+(
+	Id INT
+)

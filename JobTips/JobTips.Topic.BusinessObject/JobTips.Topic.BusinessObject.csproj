@@ -48,6 +48,7 @@
     <Compile Include="ITopicService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Topic.cs" />
+    <Compile Include="TopicPagingObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JobTips.Core.Repository\JobTips.Core.Repository.csproj">

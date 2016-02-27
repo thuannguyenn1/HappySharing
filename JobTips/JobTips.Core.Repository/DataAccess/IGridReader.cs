@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JobTips.Core.Repository.DataAccess
 {
-    public interface IGridReader
+    public interface IGridReader:IDisposable
     {
         /// <summary>
         /// Reads from the grid reader.

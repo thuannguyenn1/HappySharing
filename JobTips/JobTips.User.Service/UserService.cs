@@ -30,5 +30,15 @@ namespace JobTips.User.Service
                 return userResponseData;
             }
         }
+
+        public int RegisterUser(IList<BusinessObject.User> userInfor)
+        {
+            using (var unitOfWork = this.UserRepository.BeginWork())
+            {
+                var result = this.UserRepository.RegisterUser(userInfor, unitOfWork);
+                unitOfWork.CommitChanges();
+                return result;
+            }
+        }
     }
 }

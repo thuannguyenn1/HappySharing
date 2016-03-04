@@ -28,6 +28,18 @@ namespace JobTips.User.Repository
             return result;
         }
 
+        public int RegisterUser(IList<BusinessObject.User> userInfor, IUnitOfWork unitOfWork)
+        {
+            ValidateUnitOfWork(unitOfWork);
+            string procedureName = "dbo.CreateUser";
+
+            var parameters = new SqlDynamicParameters();
+            parameters.AddAsTable("@User", userInfor);
+            var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters, commandType: CommandType.StoredProcedure);
+
+            return result == null? 0 : 1; ;
+        }
+
         private void ValidateUnitOfWork(IUnitOfWork unitOfWork)
         {
             if (unitOfWork == null)

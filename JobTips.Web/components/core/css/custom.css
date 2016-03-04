@@ -125,11 +125,7 @@ ul.socialicons li a:hover {
 }
 
 .headernav .search .txt {
-    width: 100%;
-}
-.pull-right {
-    position: relative;
-    top: -39px;
+    width: calc(100% - 43px);
 }
 .headernav .search input {
     border: none;
@@ -1233,7 +1229,7 @@ a.down:hover {
     }
 
     .headernav .search .txt {
-        width: 75%;
+        width: calc(100% - 43px);
     }
 
     .avatar .dropdown-menu {

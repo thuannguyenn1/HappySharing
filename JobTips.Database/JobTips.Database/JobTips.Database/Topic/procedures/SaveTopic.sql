@@ -7,7 +7,7 @@ BEGIN
 	SET NOCOUNT ON
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 
-	DECLARE @InsertedObjects UDT_Topics 
+	DECLARE @InsertedObjects UDT_Topics
 
 
 	IF(EXISTS(SELECT TOP 1 t.Id	FROM dbo.Topics t INNER JOIN @Topic t2 ON t2.Id = t.Id))
@@ -18,12 +18,14 @@ BEGIN
 						FROM @Topic t2
 						)
 
-		SET IDENTITY_INSERT IdentityTable ON
+		SET IDENTITY_INSERT dbo.Topic ON
+
 		INSERT INTO dbo.Topic
 		OUTPUT INSERTED INTO @InsertedObjects 
 		SELECT * 
 		FROM @Topic
-		SET IDENTITY_INSERT IdentityTable OFF
+
+		SET IDENTITY_INSERT dbo.Topic OFF
 	END
 	ELSE 
 	BEGIN

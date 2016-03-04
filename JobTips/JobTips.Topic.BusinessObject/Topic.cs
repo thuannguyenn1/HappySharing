@@ -25,6 +25,6 @@ namespace JobTips.Topic.BusinessObject
 
         public DateTime Inserted { get; set; }
 
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
     }
 }

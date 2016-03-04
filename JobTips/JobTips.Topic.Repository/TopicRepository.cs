@@ -31,7 +31,6 @@ namespace JobTips.Topic.Repository
                     Topics = reader.Read<BusinessObject.Topic>().ToList(),
                     NumberOfTopic = reader.Read<int>().SingleOrDefault()
                 };
-
             }
 
             return topicPaging;
@@ -74,7 +73,7 @@ namespace JobTips.Topic.Repository
             string procedureName = "dbo.DeleteTopic";
 
             var parameters = new SqlDynamicParameters();
-            parameters.AddAsTable("TopicIds", topicId);
+            parameters.AddAsTable("@TopicIds", topicId);
 
             var result = unitOfWork.Execute(procedureName, parameters, commandType: CommandType.StoredProcedure);
 

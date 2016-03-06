@@ -8,5 +8,6 @@ namespace JobTips.User.BusinessObject
     public interface IUserService
     {
         UserResponse LoginUser(UserLoginRequest userInfo);
+        int RegisterUser(IList<User> topicInfo);
     }
 }

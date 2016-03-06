@@ -5,10 +5,6 @@
             templateUrl: '../../topics/html/TopicList.html',
             controller: 'topicController'
         }).
-        when('/newAccount', {
-            templateUrl: '../../topics/html/NewAccount.html',
-            controller: 'topicController'
-        }).
         when('/newTopic', {
             templateUrl: '../../topics/html/NewTopic.html',
             controller: 'topicController'

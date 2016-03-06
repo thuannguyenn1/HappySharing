@@ -48,6 +48,7 @@
     <Compile Include="IUserRepository.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterRequest.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserLoginRequest.cs" />
     <Compile Include="UserResponse.cs" />

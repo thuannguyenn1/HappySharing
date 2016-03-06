@@ -9,5 +9,6 @@ namespace JobTips.User.BusinessObject
     public interface IUserRepository:IRepository
     {
         User LoginUser(UserLoginRequest userInfo, IUnitOfWork unitOfWork);
+        int RegisterUser(IList<User> topicInfo, IUnitOfWork unitOfWork);
     }
 }

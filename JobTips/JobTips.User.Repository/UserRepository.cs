@@ -37,7 +37,7 @@ namespace JobTips.User.Repository
             parameters.AddAsTable("@User", userInfor);
             var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters, commandType: CommandType.StoredProcedure);
 
-            return result == null? 0 : 1; ;
+            return result == null? 0 : 1;
         }
 
         private void ValidateUnitOfWork(IUnitOfWork unitOfWork)

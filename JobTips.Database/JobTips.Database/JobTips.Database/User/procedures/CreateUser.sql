@@ -7,16 +7,14 @@ BEGIN
 	SET NOCOUNT ON
 	SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 	
-	DECLARE @InsertedObjects UDT_Users
-
-	BEGIN
-		INSERT INTO dbo.User
-		OUTPUT INSERTED INTO @InsertedObjects 
+	DECLARE @InsertedObjects UDT_Ids
+	
+		INSERT INTO dbo.Users
+		OUTPUT INSERTED.Id INTO @InsertedObjects 
 		SELECT * 
 		FROM @User
-	END
 
-	SELECT *
-	FROM @InsertedObjects
+	SELECT Obj.Id
+	FROM @InsertedObjects AS Obj
 
 END

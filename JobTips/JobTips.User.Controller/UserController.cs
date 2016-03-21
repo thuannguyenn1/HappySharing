@@ -21,6 +21,7 @@ namespace JobTips.User.Controller
         {
             return this.UserService.LoginUser(userInfo);
         }
+
         [HttpPost]
         public int RegisterUser(IList<BusinessObject.User> users)
         {

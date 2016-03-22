@@ -8,6 +8,9 @@ namespace JobTips.Core.Repository.DataAccess
 {
     public class JobTipsDataRepository : SqlServer.Repository
     {
-        public override string ConnectionString => System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+        public override string ConnectionString
+        {
+            get { return System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString(); }
+        }
     }
 }

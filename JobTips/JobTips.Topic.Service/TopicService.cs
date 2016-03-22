@@ -14,11 +14,41 @@ namespace JobTips.Topic.Service
             this.TopicRepository = topicRepository;
         }
 
-        public string Abc()
+        public TopicPagingObject GetTopicsByIndex(int index, int numberPerPage, bool isActive)
         {
             using (var unitOfWork = this.TopicRepository.BeginWork())
             {
-                return this.TopicRepository.Abc(unitOfWork);
+                var result = this.TopicRepository.GetTopicsByIndex(index, numberPerPage, isActive, unitOfWork);
+                return result;
+            }
+        }
+
+        public BusinessObject.Topic GetTopicById(int topicId)
+        {
+            using (var unitOfWork = this.TopicRepository.BeginWork())
+            {
+                var result = this.TopicRepository.GetTopicById(topicId, unitOfWork);
+                return result;
+            }
+        }
+
+        public int SaveTopic(IList<BusinessObject.Topic> topicInfo)
+        {
+            using (var unitOfWork = this.TopicRepository.BeginWork())
+            {
+                var result = this.TopicRepository.SaveTopic(topicInfo, unitOfWork);
+                unitOfWork.CommitChanges();
+                return result;
+            }
+        }
+
+        public int DeleteTopic(IList<int> topicId)
+        {
+            using (var unitOfWork = this.TopicRepository.BeginWork())
+            {
+                var result = this.TopicRepository.DeleteTopic(topicId, unitOfWork);
+                unitOfWork.CommitChanges();
+                return result;
             }
         }
     }

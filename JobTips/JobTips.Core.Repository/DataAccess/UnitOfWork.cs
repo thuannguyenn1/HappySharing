@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Dapper;
 
 namespace JobTips.Core.Repository.DataAccess
@@ -11,8 +12,8 @@ namespace JobTips.Core.Repository.DataAccess
     {
         private bool _disposed;
 
-        protected IDbConnection DbConnectionAsync;
-        protected IDbTransaction DbTransaction;
+        public IDbTransaction DbTransaction { get; set; }
+        public IDbConnection DbConnectionAsync { get; set; }
 
         public virtual void CommitChanges()
         {
@@ -26,54 +27,107 @@ namespace JobTips.Core.Repository.DataAccess
 
         #region Dapper's Function
 
-        public int Execute(string sql, dynamic param = null, int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<dynamic> Query(string sql, dynamic parameters = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Execute(DbConnectionAsync, sql, param, DbTransaction, commandTimeout, commandType);
+            return SqlMapper.Query(this.DbConnectionAsync, sql, parameters, this.DbTransaction, buffered, commandTimeout, commandType);
         }
 
-        public IEnumerable<dynamic> Query(string sql, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<T> Query<T>(string sql, dynamic parameters = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query(DbConnectionAsync, sql, param, DbTransaction, buffered, commandTimeout, commandType);
+            return SqlMapper.Query<T>(this.DbConnectionAsync, sql, parameters, this.DbTransaction, buffered, commandTimeout, commandType);
         }
 
-        public IEnumerable<T> Query<T>(string sql, object parameters, dynamic param = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, Func<TFirst, TSecond, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<T>(DbConnectionAsync, sql, param, DbTransaction, buffered, commandTimeout, commandType);
+            return SqlMapper.Query<TFirst, TSecond, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
         }
 
-        public SqlMapper.GridReader QueryMultiple(string sql, dynamic param = null, int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, Func<TFirst, TSecond, TThird, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.QueryMultiple(DbConnectionAsync, sql, param, DbTransaction, commandTimeout, commandType);
+            return SqlMapper.Query<TFirst, TSecond, TThird, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TReturn>(string sql, Func<TFirst, TSecond, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<TFirst, TSecond, TReturn>(DbConnectionAsync, sql, map, param, DbTransaction, buffered, splitOn, commandTimeout, commandType);
+            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TReturn>(string sql, Func<TFirst, TSecond, TThird, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<TFirst, TSecond, TThird, TReturn>(DbConnectionAsync, sql, map, param, DbTransaction, buffered, splitOn, commandTimeout, commandType);
+            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TReturn>(DbConnectionAsync, sql, map, param, DbTransaction, buffered, splitOn, commandTimeout, commandType);
+            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(DbConnectionAsync, sql, map, param, DbTransaction, buffered, splitOn, commandTimeout, commandType);
+            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<T>> QueryAsAsync<T>(string sql, dynamic parameters = null, int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(DbConnectionAsync, sql, map, param, DbTransaction, buffered, splitOn, commandTimeout, commandType);
+            return SqlMapper.QueryAsync<T>(this.DbConnectionAsync, sql, parameters, this.DbTransaction, commandTimeout, commandType);
         }
 
-        public IEnumerable<TReturn> Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn> map, dynamic param = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<TReturn>> QueryAsAsync<TFirst, TSecond, TReturn>(string sql, Func<TFirst, TSecond, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
         {
-            return SqlMapper.Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(DbConnectionAsync, sql, map, param, DbTransaction, buffered, splitOn, commandTimeout, commandType);
+            return SqlMapper.QueryAsync<TFirst, TSecond, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<TReturn>> QueryAsAsync<TFirst, TSecond, TThird, TReturn>(string sql, Func<TFirst, TSecond, TThird, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return SqlMapper.QueryAsync<TFirst, TSecond, TThird, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<TReturn>> QueryAsAsync<TFirst, TSecond, TThird, TFourth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return SqlMapper.QueryAsync<TFirst, TSecond, TThird, TFourth, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<TReturn>> QueryAsAsync<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return SqlMapper.QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<TReturn>> QueryAsAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return SqlMapper.QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<IEnumerable<TReturn>> QueryAsAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(string sql, Func<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn> map, dynamic parameters = null, bool buffered = true, string splitOn = "Id", int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return SqlMapper.QueryAsync<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TReturn>(this.DbConnectionAsync, sql, map, parameters, this.DbTransaction, buffered, splitOn, commandTimeout, commandType);
+        }
+
+        /// <inheritdoc/>
+        public virtual IGridReader QueryMultiple(string sql, dynamic parameters = null, int? commandTimeout = null, CommandType? commandType = null)
+        {
+            SqlMapper.GridReader dapperGridReader = SqlMapper.QueryMultiple(this.DbConnectionAsync, sql, parameters, this.DbTransaction, commandTimeout, commandType);
+            return new GridReader(dapperGridReader);
+        }
+
+        /// <inheritdoc/>
+        public virtual int Execute(string sql, dynamic parameters, int? commandTimeOut = null, CommandType? commandType = null)
+        {
+            return SqlMapper.Execute(this.DbConnectionAsync, sql, parameters, this.DbTransaction, commandTimeOut, commandType);
         }
 
         #endregion
@@ -110,11 +164,6 @@ namespace JobTips.Core.Repository.DataAccess
                 action();
             else
                 throw new ObjectDisposedException(this.GetType().Name, "This unit of work has already been disposed.");
-        }
-
-        SqlMapper.GridReader IUnitOfWork.QueryMultiple(string sql, dynamic param, int? commandTimeout, CommandType? commandType)
-        {
-            throw new NotImplementedException();
         }
 
         ~UnitOfWork()

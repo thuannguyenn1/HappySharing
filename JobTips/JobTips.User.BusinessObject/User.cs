@@ -13,6 +13,10 @@ namespace JobTips.User.BusinessObject
 
         public string LastName { get; set; }
 
+        public string Email { get; set; }
+
+        public DateTime Birthday { get; set; }
+
         public string UserName { get; set; }
 
         public string Password { get; set; }
@@ -22,6 +26,11 @@ namespace JobTips.User.BusinessObject
         public string PhoneNumber { get; set; }
 
         public bool Sex { get; set; }
+
+        public int IsActive { get; set; }
+        public int IsDeleted { get; set; }
+
+        DateTime Inserted { get; set; }
 
     }
 }

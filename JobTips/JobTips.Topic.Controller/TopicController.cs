@@ -1,10 +1,7 @@
-﻿using JobTips.Topic.BusinessObject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using JobTips.Topic.BusinessObject;
 using System.Web.Http;
-using JobTips.Topic.Service;
+
 
 namespace JobTips.Topic.Controller
 {
@@ -17,10 +14,28 @@ namespace JobTips.Topic.Controller
             this.TopicService = topicService;
         }
 
-        [HttpGet]
-        public string Abc()
+        public TopicPagingObject GetTopicByIndex(int index, int numberPerPage, bool isActive)
         {
-            return TopicService.Abc();
+            return this.TopicService.GetTopicsByIndex(index, numberPerPage, isActive);
         }
+
+
+        public BusinessObject.Topic GetTopicById(int topicId)
+        {
+            return this.TopicService.GetTopicById(topicId);
+        }
+
+        [HttpPost]
+        public int SaveTopics(IList<BusinessObject.Topic> topics)
+        {
+            return this.TopicService.SaveTopic(topics);
+        }
+
+        [HttpPost]
+        public int DeleteTopics(IList<int> topicIds)
+        {
+            return this.TopicService.DeleteTopic(topicIds);
+        }
+
     }
 }

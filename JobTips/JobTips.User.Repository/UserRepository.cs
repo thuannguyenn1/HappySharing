@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 using JobTips.Core.Repository.DataAccess;
 using JobTips.User.BusinessObject;
 
@@ -22,9 +23,21 @@ namespace JobTips.User.Repository
                 Password = userInfo.Password
             };
 
-            var result = unitOfWork.Query<BusinessObject.User>(procedureName,parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters, commandType: CommandType.StoredProcedure).SingleOrDefault();
 
             return result;
+        }
+
+        public int RegisterUser(IList<BusinessObject.User> userInfor, IUnitOfWork unitOfWork)
+        {
+            ValidateUnitOfWork(unitOfWork);
+            string procedureName = "dbo.CreateUser";
+
+            var parameters = new SqlDynamicParameters();
+            parameters.AddAsTable("@User", userInfor);
+            var result = unitOfWork.Query<BusinessObject.User>(procedureName, parameters, commandType: CommandType.StoredProcedure);
+
+            return result == null? 0 : 1;
         }
 
         private void ValidateUnitOfWork(IUnitOfWork unitOfWork)

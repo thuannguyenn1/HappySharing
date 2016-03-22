@@ -16,11 +16,9 @@
    }
     init();
 }]).directive('login', function() {
-
     return {
         restrict: 'E',
         templateUrl: '../../user/html/LoginForm.html',
         controller: 'userController'
     };
-
 });

@@ -2806,7 +2806,7 @@ textarea.autosize {
   font-size: 16px;
 }
 .floating-label .form-control:focus ~ label,
-.floating-label .form-control.dirty ~ label {
+.floating-label .form-control.ng-dirty ~ label {
   top: 0px;
   font-size: 12px !important;
 }
@@ -3006,11 +3006,11 @@ fieldset[disabled] .form-inverse .form-group .form-control {
   border-bottom-color: #ff9800;
 }
 .has-warning .form-control:focus,
-.has-warning .form-control.dirty {
+.has-warning .form-control.ng-dirty {
   border-bottom-color: #ff9800;
 }
 .has-warning .form-control:focus ~ label,
-.has-warning .form-control.dirty ~ label {
+.has-warning .form-control.ng-dirty ~ label {
   color: inherit;
 }
 .has-warning .form-control ~ label,
@@ -3039,11 +3039,11 @@ fieldset[disabled] .form-inverse .form-group .form-control {
   border-bottom-color: #e69c2e;
 }
 .form-inverse .has-warning .form-control:focus,
-.form-inverse .has-warning .form-control.dirty {
+.form-inverse .has-warning .form-control.ng-dirty {
   border-bottom-color: #e69c2e;
 }
 .form-inverse .has-warning .form-control:focus ~ label,
-.form-inverse .has-warning .form-control.dirty ~ label {
+.form-inverse .has-warning .form-control.ng-dirty ~ label {
   color: inherit;
 }
 .form-inverse .has-warning .form-control ~ label,
@@ -3072,11 +3072,11 @@ fieldset[disabled] .form-inverse .form-group .form-control {
   border-bottom-color: #f44336;
 }
 .has-error .form-control:focus,
-.has-error .form-control.dirty {
+.has-error .form-control.ng-dirty {
   border-bottom-color: #f44336;
 }
 .has-error .form-control:focus ~ label,
-.has-error .form-control.dirty ~ label {
+.has-error .form-control.ng-dirty ~ label {
   color: inherit;
 }
 .has-error .form-control ~ label,
@@ -3105,11 +3105,11 @@ fieldset[disabled] .form-inverse .form-group .form-control {
   border-bottom-color: #e65045;
 }
 .form-inverse .has-error .form-control:focus,
-.form-inverse .has-error .form-control.dirty {
+.form-inverse .has-error .form-control.ng-dirty {
   border-bottom-color: #e65045;
 }
 .form-inverse .has-error .form-control:focus ~ label,
-.form-inverse .has-error .form-control.dirty ~ label {
+.form-inverse .has-error .form-control.ng-dirty ~ label {
   color: inherit;
 }
 .form-inverse .has-error .form-control ~ label,
@@ -3138,11 +3138,11 @@ fieldset[disabled] .form-inverse .form-group .form-control {
   border-bottom-color: #4caf50;
 }
 .has-success .form-control:focus,
-.has-success .form-control.dirty {
+.has-success .form-control.ng-dirty {
   border-bottom-color: #4caf50;
 }
 .has-success .form-control:focus ~ label,
-.has-success .form-control.dirty ~ label {
+.has-success .form-control.ng-dirty ~ label {
   color: inherit;
 }
 .has-success .form-control ~ label,
@@ -3171,11 +3171,11 @@ fieldset[disabled] .form-inverse .form-group .form-control {
   border-bottom-color: #45e64a;
 }
 .form-inverse .has-success .form-control:focus,
-.form-inverse .has-success .form-control.dirty {
+.form-inverse .has-success .form-control.ng-dirty {
   border-bottom-color: #45e64a;
 }
 .form-inverse .has-success .form-control:focus ~ label,
-.form-inverse .has-success .form-control.dirty ~ label {
+.form-inverse .has-success .form-control.ng-dirty ~ label {
   color: inherit;
 }
 .form-inverse .has-success .form-control ~ label,

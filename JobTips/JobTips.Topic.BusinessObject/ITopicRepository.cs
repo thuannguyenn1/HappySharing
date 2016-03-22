@@ -8,6 +8,12 @@ namespace JobTips.Topic.BusinessObject
 {
     public interface ITopicRepository:IRepository
     {
-        string Abc(IUnitOfWork unitOfWork);
+        TopicPagingObject GetTopicsByIndex(int index, int numberPerPage, bool isActive, IUnitOfWork unitOfWork);
+
+        Topic GetTopicById(int topicId, IUnitOfWork unitOfWork);
+
+        int SaveTopic(IList<Topic> topicInfo, IUnitOfWork unitOfWork);
+
+        int DeleteTopic(IList<int> topicId, IUnitOfWork unitOfWork);
     }
 }
